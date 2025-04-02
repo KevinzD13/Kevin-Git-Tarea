@@ -31,46 +31,6 @@ namespace ApiAsignacion.Services
         }
 
 
-        public string MostrarContinentes(string continente)
-        {
-            var paisesContinentes = listaP.Where(p => p.Continente == continente);
-            return JsonConvert.SerializeObject(paisesContinentes, Formatting.Indented);
-        }
 
-
-
-        public string MayorPoblacion(int n)
-        {
-            for (int i = 0; i < listaP.Count - 1; i++)
-            {
-             for (int j = 0; j < listaP.Count - 1 - i; j++)
-              { 
-              if (listaP[j].Poblacion < listaP[j + 1].Poblacion)
-               {
-
-                 var temp = listaP[j];
-                 listaP[j] = listaP[j + 1];
-                 listaP[j + 1] = temp;
-                }
-               }
-            }
-
-            var paisesConMayorPoblacion = listaP.Take(n).ToList();
-
-            return JsonConvert.SerializeObject(paisesConMayorPoblacion, Formatting.Indented);
-        }
-
-        public string[] Nombre(string nombre)
-        {
-            string[] palabra = nombre.Split(' ');
-            if (palabra.Length < 2)
-            {
-                return new string[] { "Se requiere al menos 1 nombre y 2 apellidos" };
-            }
-            else
-            {
-                return new string[] { palabra[0], palabra[2] };
-            }
-        }
     }
 }
