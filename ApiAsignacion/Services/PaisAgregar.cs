@@ -23,54 +23,44 @@ namespace ApiAsignacion.Services
             listaP = JsonConvert.DeserializeObject<List<PaisIn>>(jsonInfo);
         }
 
+        public string ActualizarPais(int id, PaisIn paisActualizado)
+        {
+            var paisExistente = listaP.FirstOrDefault(p => p.Id == id);
 
+            if (paisExistente != null)
+            {
+                paisExistente.Pais = paisActualizado.Pais;
+                paisExistente.Continente = paisActualizado.Continente;
+                paisExistente.Poblacion = paisActualizado.Poblacion;
+
+                string jsonString = JsonConvert.SerializeObject(listaP, Formatting.Indented);
+                File.WriteAllText("C:\\Users\\kevin\\source\\repos\\Practica numero 4\\ApiAsignacion\\Json Sample\\Practica4.json", jsonString);
+
+                return "País actualizado exitosamente.";
+            }
+            else
+            {
+                return "El país con el ID especificado no se encontró.";
+            }
+        }
+
+   
 
         public string MostrarPaises()
         {
             return JsonConvert.SerializeObject(listaP, Formatting.Indented);
         }
 
-
-        public string MostrarContinentes(string continente)
+        public string AgregarPais(PaisIn nuevoPais)
         {
-            var paisesContinentes = listaP.Where(p => p.Continente == continente);
-            return JsonConvert.SerializeObject(paisesContinentes, Formatting.Indented);
+            listaP.Add(nuevoPais);
+
+            string jsonString = JsonConvert.SerializeObject(listaP, Formatting.Indented);
+            File.WriteAllText("C:\\Users\\kevin\\source\\repos\\Practica numero 4\\ApiAsignacion\\Json Sample\\Practica4.json", jsonString);
+
+            return "País agregado exitosamente.";
         }
 
 
-
-        public string MayorPoblacion(int n)
-        {
-            for (int i = 0; i < listaP.Count - 1; i++)
-            {
-             for (int j = 0; j < listaP.Count - 1 - i; j++)
-              { 
-              if (listaP[j].Poblacion < listaP[j + 1].Poblacion)
-               {
-
-                 var temp = listaP[j];
-                 listaP[j] = listaP[j + 1];
-                 listaP[j + 1] = temp;
-                }
-               }
-            }
-
-            var paisesConMayorPoblacion = listaP.Take(n).ToList();
-
-            return JsonConvert.SerializeObject(paisesConMayorPoblacion, Formatting.Indented);
-        }
-
-        public string[] Nombre(string nombre)
-        {
-            string[] palabra = nombre.Split(' ');
-            if (palabra.Length < 2)
-            {
-                return new string[] { "Se requiere al menos 1 nombre y 2 apellidos" };
-            }
-            else
-            {
-                return new string[] { palabra[0], palabra[2] };
-            }
-        }
     }
 }
