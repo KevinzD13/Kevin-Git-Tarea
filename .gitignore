@@ -1,0 +1,16 @@
+# Ignorar directorios de compilación
+bin/
+obj/
+
+# Ignorar configuraciones de Visual Studio
+.vs/
+.vscode/
+
+# Ignorar archivos de sistema (Windows)
+Thumbs.db
+
+# Ignorar archivos de log
+*.log
+
+# Ignorar archivos temporales
+*.tmp

@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 1,
+        "Pais": "Argentina",
+        "Continente": "América",
+        "Poblacion": 1000
+    },
+    {
+        "Id": 2,
+        "Pais": "Nigeria",
+        "Continente": "África",
+        "Poblacion": 12000
+    },
+    {
+        "Id": 3,
+        "Pais": "Japón",
+        "Continente": "Asia",
+        "Poblacion": 7000
+    },
+    {
+        "Id": 4,
+        "Pais": "Australia",
+        "Continente": "Oceanía",
+        "Poblacion": 4000
+    },
+    {
+        "Id": 5,
+        "Pais": "Francia",
+        "Continente": "Europa",
+        "Poblacion": 15000
+    },
+    {
+        "Id": 6,
+        "Pais": "Canadá",
+        "Continente": "América",
+        "Poblacion": 1200
+    },
+    {
+        "Id": 7,
+        "Pais": "India",
+        "Continente": "Asia",
+        "Poblacion": 50000
+    },
+    {
+        "Id": 8,
+        "Pais": "Egipto",
+        "Continente": "África",
+        "Poblacion": 9000
+    },
+    {
+        "Id": 9,
+        "Pais": "Nueva Zelanda",
+        "Continente": "Oceanía",
+        "Poblacion": 2300
+    },
+    {
+        "Id": 10,
+        "Pais": "Brasil",
+        "Continente": "América",
+        "Poblacion": 31000
+    }
+]
