@@ -6,7 +6,8 @@ namespace ApiAsignacion.Interfaces
     {
         
         string MostrarPaises ();
-      
+        string ActualizarPais(int id, PaisIn paisActualizado);
+
 
     }
 }

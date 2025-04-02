@@ -25,7 +25,20 @@ namespace ApiAsignacion.Controllers
             return Ok(registro.MostrarPaises());
         }
 
+        [HttpPut("{id}")]
 
+        public IActionResult editar (int id, [FromBody] PaisIn paisActualizado)
+        {
+            string result = registro.ActualizarPais(id, paisActualizado);
+            if (result == "País actualizado exitosamente.")
+            {
+                return Ok(result);
+            }   
+            return NotFound(result);
+        }
     }
+
+
+    
 }
 
